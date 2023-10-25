@@ -15,15 +15,24 @@ class LibroController {
 
      //read one
      async getOne(req, res) {
+      try {
         const libroId = req.params.id; 
         const [result] = await pool.query('SELECT * FROM libros WHERE id = ?', [libroId]);
-      
+    
         if (result[0] !== undefined) {
           res.json(result);
         } else {
-          res.json({ "Error": "No existe el libro" });
+          throw { status: 404, mensaje: "No existe el libro" };
+        }
+      } catch (error) {
+        if (error.status === 404) {
+          res.status(404).json({ error: error.mensaje });
+        } else {
+          console.error(error);
+          res.status(500).json({ error: "Error al obtener libro" });
         }
       }
+    }    
 
       //create one
       async createOne(req, res) {
