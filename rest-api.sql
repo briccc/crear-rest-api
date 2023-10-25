@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2023 a las 23:13:05
+-- Tiempo de generación: 25-10-2023 a las 22:03:47
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -44,7 +44,7 @@ INSERT INTO `libros` (`id`, `nombre`, `autor`, `categoria`, `anio_publicacion`, 
 (1, 'Cien años de soledad', 'Gabriel García Márquez', 'Realismo mágico', '1967-01-01', '9788437604947'),
 (2, '1984', 'George Orwell', 'Distopía', '1949-01-01', '9780452284234'),
 (3, 'El Gran Gatsby', 'F. Scott Fitzgerald', 'Ficción', '1925-01-01', '9780743273565'),
-(4, 'Don Quijote de la Mancha', 'Miguel de Cervantes', 'Novela de aventuras', '1605-01-01', '9788467022551'),
+(4, 'San Martin', 'Yuval Noah Harari', 'Historia', '2011-02-10', '973-849992441'),
 (5, 'Harry Potter y la piedra filos', 'J.K. Rowling', 'Fantasía', '1997-01-01', '9788498380629'),
 (6, 'Matar a un ruiseñor', 'Harper Lee', 'Novela', '1960-01-01', '9781234567890'),
 (7, 'Rayuela', 'Julio Cortázar', 'Ficción', '1963-01-01', '9780987654321'),
@@ -70,7 +70,7 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
