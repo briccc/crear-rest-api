@@ -33,6 +33,28 @@ class LibroController {
         }
       }
 
+      //update libro
+      async updateOne(req, res) {
+        try {
+          const libro = req.body;
+          const [result] = await pool.query('UPDATE Libros SET nombre = ?, autor = ?, categoria = ?, anio_publicacion = ?, ISBN = ? WHERE id = ?', [libro.nombre, libro.autor, libro.categoria, libro.anio_publicacion, libro.ISBN, libro.id]);
+      
+          if (result.affectedRows > 0) {
+            res.json({ "Libros actualizados": result.affectedRows });
+          } else {
+            throw { status: 404, mensaje: "Libro no encontrado" };
+          }
+        } catch (error) {
+          if (error.status === 404) {
+            res.status(404).json({ error: error.mensaje });
+          } else {
+            console.error(error);
+            res.status(500).json({ error: "Error al actualizar libro" });
+          }
+        }
+      }
+
+
 }
 
 export const libro = new LibroController();
