@@ -3,10 +3,15 @@ import {pool} from './database.js';
 class LibroController {
 
     //read libros
-     async getAll(req, res) {
-         const [result] = await pool.query('SELECT * FROM libros'); 
-         res.json(result);
-     }
+    async getAll(req, res) {
+      try {
+        const [result] = await pool.query('SELECT * FROM libros'); 
+        res.json(result);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Error al obtener libros" });
+      }
+    }
 
      //read one
      async getOne(req, res) {
